@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var jokes = [Joke]()
-    @State var limit: String = ""
+    @State var limit = 1
     
     init(){
         UITableView.appearance().backgroundColor = .clear
@@ -29,14 +29,14 @@ struct ContentView: View {
             .overlay(
                 VStack(alignment: .leading) {
                     VStack {
-                        TextField(
-                            "Insert limit",
-                            text: $limit
-                        )
-                        .multilineTextAlignment(.center)
-                        .font(Font.title.weight(.light))
-                        .foregroundColor(Color.white)
-                        .padding()
+//                        TextField(
+//                            "Insert limit",
+//                            text: $limit
+//                        )
+//                        .multilineTextAlignment(.center)
+//                        .font(Font.title.weight(.light))
+//                        .foregroundColor(Color.white)
+//                        .padding()
 
                         HStack {
                             Spacer()

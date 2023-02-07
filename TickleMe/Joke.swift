@@ -15,14 +15,17 @@ struct Joke: Codable, Identifiable {
 class Api : ObservableObject{
     @Published var jokes = [Joke]()
 
-    func loadData(limit: String, completion:@escaping ([Joke]) -> ()) {
-        let limit = limit.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = URL(string: "https://api.api-ninjas.com/v1/dadjokes?limit="+limit!)!
+    func loadData(limit: Int, completion:@escaping ([Joke]) -> ()) {
+//        let limit = limit.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: "https://api.api-ninjas.com/v1/dadjokes?limit="+String(limit))!
         var request = URLRequest(url: url)
         request.setValue("0Rzx34mN+oPvjXnJFFuB3Q==AnmYCust1NLLgnAU", forHTTPHeaderField: "X-Api-Key")
         URLSession.shared.dataTask(with: request) { data, response, error in
             let jokes = try! JSONDecoder().decode([Joke].self, from: data!)
+           
+            print("Limit = \(limit)")
             print(jokes)
+            
             DispatchQueue.main.async {
                 completion(jokes)
             }
