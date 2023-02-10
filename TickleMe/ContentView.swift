@@ -24,27 +24,21 @@ struct ContentView: View {
     }
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue]), startPoint: .top, endPoint: .bottom)
+        LinearGradient(gradient: Gradient(colors: [Color.blue, Color.white]), startPoint: .top, endPoint: .bottom)
             .edgesIgnoringSafeArea(.vertical)
             .overlay(
                 VStack(alignment: .leading) {
-
                     List {
                         ForEach(jokes) { joke in
-                            
+//                           Spacer()
                             Text(joke.joke)
                                 .font(.title)
+                                .foregroundColor(Color.white)
                                 .padding(.bottom)
                             .minimumScaleFactor(0.01)
-                            Spacer()
-                                .minimumScaleFactor(0.01)
-                                .font(.system(size: 18.0))
-                            .listRowBackground(Color.clear)
-                            .foregroundColor(.black)
-                            .padding()
+                            .listRowBackground(Color.blue)
                         }
                     }
-                    
                     .padding(10.0)
                     HStack {
                         Spacer()
@@ -53,15 +47,13 @@ struct ContentView: View {
                                 .padding()
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 50)
-                                        .stroke(Color.white, lineWidth: 2)
+                                        .stroke(Color.blue, lineWidth: 5)
                                 )
                         }
                         .font(.title2)
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.blue)
                         Spacer()
                     }
-                    
-                    
                 }
             )
     }
