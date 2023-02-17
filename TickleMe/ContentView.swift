@@ -30,7 +30,6 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     List {
                         ForEach(jokes) { joke in
-//                           Spacer()
                             Text(joke.joke)
                                 .font(.title)
                                 .foregroundColor(Color.white)
@@ -39,6 +38,7 @@ struct ContentView: View {
                             .listRowBackground(Color.blue)
                         }
                     }
+                    .offset(x: 0, y: 0)
                     .padding(10.0)
                     HStack {
                         Spacer()
@@ -54,6 +54,7 @@ struct ContentView: View {
                         .foregroundColor(Color.blue)
                         Spacer()
                     }
+                    .padding(0.0)
                 }
             )
     }
